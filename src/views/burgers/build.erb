@@ -1,13 +1,6 @@
-<h2>Build Your Burger</h2>
 
-<form action="/build" method="post">
-
-  <label for="ingredient">Choose Ingredients:</label>
-  <select name="ingredients[]" multiple>
-    <% @ingredients.each do |ingredient| %>
-      <option value="<%= ingredient['id'] %>"><%= ingredient['name'] %></option>
-    <% end %>
-  </select>
-
-  <button type="submit">Build Burger</button>
-</form>
+<select id="typeDropdown">
+  <% @ingredients.each do |ingredient| %>
+    <option value="<%= ingredient['ingredient'] %>"><%= ingredient['ingredient'] %></option>
+  <% end %>
+</select>

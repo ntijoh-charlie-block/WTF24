@@ -8,10 +8,11 @@ class App < Sinatra::Base
         return @db
     end
 
-
     get '/build' do
-        @ingredients = db.execute('SELECT id, name, price FROM ingredients WHERE price > 0')
+        @ingredients = db.execute('SELECT type FROM ingredients')
         erb :'burgers/build'
     end
-  
+    
+
+
 end
