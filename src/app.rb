@@ -9,10 +9,10 @@ class App < Sinatra::Base
     end
 
     get '/build' do
-        @ingredients = db.execute('SELECT type FROM ingredients')
+        @ingredients = db.execute('SELECT * FROM ingredients')
         erb :'burgers/build'
     end
-    
+
 
 
 end
