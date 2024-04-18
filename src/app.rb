@@ -70,7 +70,7 @@ class App < Sinatra::Base
 
 
     post '/submit' do
-        user_id = session[:user_id]
+        user_id = session[:user_id] #?????????
 
         order = db.execute("INSERT INTO orders (user_id) VALUES (?) RETURNING id", user_id).first
         order_id = order["id"]
