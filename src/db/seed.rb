@@ -14,6 +14,11 @@ end
 
 def create_tables
 
+    db.execute('CREATE TABLE "users" (
+        "username"	TEXT NOT NULL,
+        "password"	TEXT NOT NULL
+    );')
+
     db.execute('CREATE TABLE "ingredients" (
         "id"	INTEGER NOT NULL,
         "name"	TEXT NOT NULL,
@@ -40,26 +45,26 @@ end
 def seed_tables
 
     ingredients = [
-        {name:'Nötfärs', price:'20', type:'Kött'},
-        {name:'Högrevsfärs', price:'30', type:'Kött'},
-        {name:'Haloumiburgare', price:'25', type:'Kött'},
-        {name:'Vegofärs', price:'20', type:'Kött'},
-        {name:'Sallad', price:'5', type:'Grönsaker'},
-        {name:'Tomat', price:'5', type:'Grönsaker'},
-        {name:'Gurka', price:'5', type:'Grönsaker'},
-        {name:'Lök', price:'5', type:'Grönsaker'},
-        {name:'Saltgurka', price:'5', type:'Grönsaker'},
-        {name:'Karamelliserad lök', price:'7', type:'Grönsaker'},
-        {name:'Ketchup', price:'5', type:'Sås'},
-        {name:'Hamburgedressing', price:'5', type:'Sås'},
-        {name:'Majonäs', price:'5', type:'Sås'},
-        {name:'Barbequesås', price:'5', type:'Sås'},
-        {name:'Vitt bröd', price:'10', type:'Bröd'},
-        {name:'Fullkornsbröd', price:'10', type:'Bröd'},
-        {name:'Sesambröd', price:'12', type:'Bröd'},
-        {name:'Glutenfritt bröd', price:'12', type:'Bröd'},
-        {name:'Cheddarost', price:'5', type:'Tillbehör'},
-        {name:'Bacon', price:'15', type:'Tillbehör'}
+        {name:'Nötfärs', price:'20', type:'Kott'},
+        {name:'Högrevsfärs', price:'30', type:'Kott'},
+        {name:'Haloumiburgare', price:'25', type:'Kott'},
+        {name:'Vegofärs', price:'20', type:'Kott'},
+        {name:'Sallad', price:'5', type:'Gronsaker'},
+        {name:'Tomat', price:'5', type:'Gronsaker'},
+        {name:'Gurka', price:'5', type:'Gronsaker'},
+        {name:'Lök', price:'5', type:'Gronsaker'},
+        {name:'Saltgurka', price:'5', type:'Gronsaker'},
+        {name:'Karamelliserad lök', price:'7', type:'Gronsaker'},
+        {name:'Ketchup', price:'5', type:'Sas'},
+        {name:'Hamburgedressing', price:'5', type:'Sas'},
+        {name:'Majonäs', price:'5', type:'Sas'},
+        {name:'Barbequesås', price:'5', type:'Sas'},
+        {name:'Vitt bröd', price:'10', type:'Brod'},
+        {name:'Fullkornsbröd', price:'10', type:'Brod'},
+        {name:'Sesambröd', price:'12', type:'Brod'},
+        {name:'Glutenfritt bröd', price:'12', type:'Brod'},
+        {name:'Cheddarost', price:'5', type:'Tillbehor'},
+        {name:'Bacon', price:'15', type:'Tillbehor'}
     ]
 
     ingredients.each do |ingredient|

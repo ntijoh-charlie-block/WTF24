@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details</title>
+</head>
+
+<body>
+
+<h1>Order detaljer</h1>
+
+<h2>Valda ingredientser:</h2>
+
+
+<h3>Bröd:</h3>
+<ul>
+  <% @selected_ingredients.select { |ingredient| ingredient['type'] == 'Brod' }.each do |ingredient| %>
+    <li><%= ingredient['name'] %> - <%= ingredient['price'] %> kr</li>
+  <% end %>
+</ul>
+
+<h3>Kött:</h3>
+<ul>
+  <% @selected_ingredients.select { |ingredient| ingredient['type'] == 'Kott' }.each do |ingredient| %>
+    <li><%= ingredient['name'] %> - <%= ingredient['price'] %> kr</li>
+  <% end %>
+</ul>
+
+<h3>Grönsaker:</h3>
+<ul>
+  <% @selected_ingredients.select { |ingredient| ingredient['type'] == 'Gronsaker' }.each do |ingredient| %>
+    <li><%= ingredient['name'] %> - <%= ingredient['price'] %> kr</li>
+  <% end %>
+</ul>
+
+<h3>Sås:</h3>
+<ul>
+  <% @selected_ingredients.select { |ingredient| ingredient['type'] == 'Sas' }.each do |ingredient| %>
+    <li><%= ingredient['name'] %> - <%= ingredient['price'] %> kr</li>
+  <% end %>
+</ul>
+
+<h3>Tillbehör:</h3>
+<ul>
+  <% @selected_ingredients.select { |ingredient| ingredient['type'] == 'Tillbehor' }.each do |ingredient| %>
+    <li><%= ingredient['name'] %> - <%= ingredient['price'] %> kr</li>
+  <% end %>
+</ul>
+
+<h3>Totalt pris: <%= total_price %> kr</h3>
+
+</body>
+</html>

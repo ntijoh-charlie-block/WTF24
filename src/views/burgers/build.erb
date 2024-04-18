@@ -1,79 +1,83 @@
-<h1>Burger Build</h1>
-<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Build</title>
+</head>
 
-<form action="/submit" method="post">
-
-  <h2>Välj ingredienser:</h2>
-
-
-  <h3>Bröd:</h3>
-<% @ingredients.select { |ingredient| ingredient['type'] == 'Bröd' }.each do |ingredient| %>
-  <label>
-    <input type="radio" name="selected_Bröd" value="<%= ingredient['id'] %>">
-    <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
-  </label>
-  <br>
-<% end %>
-
-
-  <br>
-  <br>
- 
-
-  <h3>Kött:</h3>
-<% @ingredients.select { |ingredient| ingredient['type'] == 'Kött' }.each do |ingredient| %>
-  <label>
-    <input type="radio" name="selected_Kött" value="<%= ingredient['id'] %>">
-    <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
-  </label>
-  <br>
-<% end %>
-
-
-  <br>
+<body>
+  <h1>Burger Build</h1>
   <br>
 
+  <form action="/submit" method="post">
 
-  <h3>Grönsaker:</h3>
-<% @ingredients.select { |ingredient| ingredient['type'] == 'Grönsaker' }.each do |ingredient| %>
-  <label>
-    <input type="checkbox" name="selected_Grönsaker" value="<%= ingredient['id'] %>">
-    <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
-  </label>
-  <br>
-<% end %>
+    <h2>Välj ingredienser:</h2>
 
 
-<br>
-<br>
+    <h3>Bröd:</h3>
+    <% @ingredients.select { |ingredient| ingredient['type'] == 'Brod' }.each do |ingredient| %>
+      <label>
+        <input type="radio" name="selected_Brod" value="<%= ingredient['id'] %>">
+        <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
+      </label>
+      <br>
+    <% end %>
 
+    <br>
+    <br>
 
-<h3>Sås:</h3>
-<% @ingredients.select { |ingredient| ingredient['type'] == 'Sås' }.each do |ingredient| %>
-  <label>
-    <input type="checkbox" name="selected_Sås" value="<%= ingredient['id'] %>">
-    <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
-  </label>
-  <br>
-<% end %>
+    <h3>Kött - 150g:</h3>
+    <% @ingredients.select { |ingredient| ingredient['type'] == 'Kott' }.each do |ingredient| %>
+      <label>
+        <input type="radio" name="selected_Kott" value="<%= ingredient['id'] %>">
+        <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
+      </label>
+      <br>
+    <% end %>
 
+    <br>
+    <br>
 
-<br>
-<br>
+    <h3>Grönsaker:</h3>
+    <% @ingredients.select { |ingredient| ingredient['type'] == 'Gronsaker' }.each do |ingredient| %>
+      <label>
+        <input type="checkbox" name="selected_Gronsaker[]" value="<%= ingredient['id'] %>">
+        <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
+      </label>
+      <br>
+    <% end %>
 
+    <br>
+    <br>
 
-<h3>Tillbehör:</h3>
-<% @ingredients.select { |ingredient| ingredient['type'] == 'Tillbehör' }.each do |ingredient| %>
-  <label>
-    <input type="checkbox" name="selected_Tillbehör" value="<%= ingredient['id'] %>">
-    <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
-  </label>
-  <br>
-<% end %>
+    <h3>Sås:</h3>
+    <% @ingredients.select { |ingredient| ingredient['type'] == 'Sas' }.each do |ingredient| %>
+      <label>
+        <input type="checkbox" name="selected_Sas[]" value="<%= ingredient['id'] %>">
+        <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
+      </label>
+      <br>
+    <% end %>
 
-<br>
-<br>
+    <br>
+    <br>
 
-  <button type="submit">Skicka</button>
+    <h3>Tillbehör:</h3>
+    <% @ingredients.select { |ingredient| ingredient['type'] == 'Tillbehor' }.each do |ingredient| %>
+      <label>
+        <input type="checkbox" name="selected_Tillbehor[]" value="<%= ingredient['id'] %>">
+        <%= ingredient['name'] %> - <%= ingredient['price'] %> kr
+      </label>
+      <br>
+    <% end %>
 
-</form>
+    <br>
+    <br>
+
+    <button type="submit">Skicka</button>
+
+  </form>
+
+</body>
+</html>
