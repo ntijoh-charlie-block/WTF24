@@ -16,8 +16,11 @@ def create_tables
 
     db.execute('CREATE TABLE "users" (
         "username"	TEXT NOT NULL,
-        "password"	TEXT NOT NULL
+        "password"	TEXT NOT NULL,
+        "id"	INTEGER,
+        PRIMARY KEY("id" AUTOINCREMENT)
     );')
+
 
     db.execute('CREATE TABLE "ingredients" (
         "id"	INTEGER NOT NULL,

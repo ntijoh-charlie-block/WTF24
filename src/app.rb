@@ -5,13 +5,11 @@ class App < Sinatra::Base
 
     enable :sessions
 
-
     def db
         if @db == nil
             @db = SQLite3::Database.new('./db/db.sqlite')
             @db.results_as_hash = true
         end
-
         return @db
     end
 
@@ -39,7 +37,7 @@ class App < Sinatra::Base
 
         db.execute('INSERT INTO users (username, password) VALUES (?, ?)', username, hashed_password)
 
-        redirect '/build'
+        redirect '/login'
     end
 
 
@@ -48,6 +46,8 @@ class App < Sinatra::Base
     end
 
     post '/login' do
+        user_id = session[:user_id]
+
         username = params['username']
         cleartext_password = params['password']
 
@@ -58,7 +58,6 @@ class App < Sinatra::Base
             redirect '/build'
         else
             redirect "/login"
-            "Fel lösenord eller användarnamn"
         end
     end
 
@@ -70,7 +69,8 @@ class App < Sinatra::Base
 
 
     post '/submit' do
-        user_id = session[:user_id] #?????????
+
+        user_id = session[:user_id]
 
         order = db.execute("INSERT INTO orders (user_id) VALUES (?) RETURNING id", user_id).first
         order_id = order["id"]
@@ -101,6 +101,8 @@ class App < Sinatra::Base
 
         total_price = @selected_ingredients.sum { |ingredient| ingredient['price'].to_i }
 
+
         erb:'burgers/show', locals: {total_price: total_price}
+
     end
 end
